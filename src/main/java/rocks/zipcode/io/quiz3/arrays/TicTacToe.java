@@ -4,34 +4,66 @@ package rocks.zipcode.io.quiz3.arrays;
  * @author leon on 09/12/2018.
  */
 public class TicTacToe {
+    String [][] board;
 
     public TicTacToe(String[][] board) {
+        this.board = board;
     }
 
     public TicTacToe() {
     }
 
+
     public String[] getRow(Integer value) {
-        return null;
+        String [] row = new String[3];
+        int index = 0;
+            for (int j = 0; j < board.length ; j++) {
+                row[index]= board[value][j];
+                index++;
+        }
+        return row;
     }
 
     public String[] getColumn(Integer value) {
-        return null;
+        String [] row = new String[3];
+        int index = 0;
+        for (int j = 0; j < board.length ; j++) {
+            row[index]= board[j][value];
+            index++;
+        }
+        return row;
     }
 
     public Boolean isRowHomogenous(Integer rowIndex) {
-        return null;
+        String []row = getRow(rowIndex);
+        if (row[0] == row[1]&&row[0] == row[2]) {
+            return true;
+        }
+        return false;
     }
 
     public Boolean isColumnHomogeneous(Integer columnIndex) {
-        return null;
+        String []column = getColumn(columnIndex);
+        if (column[0] == column[1] && column[0] == column[2]) {
+            return true;
+        }
+        return false;
     }
 
     public String getWinner() {
-        return null;
+        String result = "";
+        for (int i = 0; i < board.length; i++) {
+            if (isColumnHomogeneous(i)) {
+                result= board[i][i];
+
+            }  if (isRowHomogenous(i)) {
+                result= board[i][i];
+            }
+
+        }return result;
     }
 
     public String[][] getBoard() {
-        return null;
+        return board;
     }
 }
