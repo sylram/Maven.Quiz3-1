@@ -54,10 +54,22 @@ public class TicTacToe {
         String result = "";
         for (int i = 0; i < board.length; i++) {
             if (isColumnHomogeneous(i)) {
-                result= board[i][i];
+                result = board[i][i];
 
-            }  if (isRowHomogenous(i)) {
-                result= board[i][i];
+            }
+            if (isRowHomogenous(i)) {
+                result = board[i][i];
+
+            }
+            if (board[0][0] == board[1][1] && board[2][2] == board[0][0]) {
+                System.out.println(i);
+                result = board[1][1];
+
+            }
+            if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+                System.out.println(i);
+                result = board[1][1];
+
             }
 
         }return result;
